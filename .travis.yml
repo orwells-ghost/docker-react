@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t pythiaofdelphi/docker-react -f Dockerfile.dev ./
+
+script:
+  - docker run -e CI=TRUE pythiaofdelphi/docker-react npm run test
